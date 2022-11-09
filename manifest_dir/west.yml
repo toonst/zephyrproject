@@ -1,0 +1,28 @@
+# West manifest file, inspired by T2 and T3 topologies. More info here:
+# https://docs.zephyrproject.org/latest/develop/west/workspaces.html#topologies-supported
+manifest:
+  remotes:
+    - name: upstream
+      url-base: https://github.com/zephyrproject-rtos
+    - name: memfault
+      url-base: https://github.com/memfault
+  projects:
+    - name: zephyr
+      remote: upstream
+      revision: v3.2.0
+      west-commands: scripts/west-commands.yml
+      import:
+        name-allowlist:
+          # Add projects/modules that need to be version tracked by
+          # zephyr/west.yml here. If a project/module needs to have a
+          # fixed version, they can be added to the list of projects
+          # defined above
+          - hal_stm32
+          - cmsis
+          - mbedtls
+    - name: memfault-firmware-sdk
+      remote: memfault
+      revision: 0.34.0
+      path: modules/lib/memfault-firmware-sdk
+  self:
+    path: manifest_dir
