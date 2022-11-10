@@ -6,19 +6,12 @@ applications. Some of the features demonstrated in this example are:
 
 - Basic [Zephyr application][app_dev] skeleton
 - [Zephyr workspace applications][workspace_app]
-- [West T2 topology][west_t2]
+- Loosely based on [West T2 topology][west_t2]
 - [Custom boards][board_porting]
 - Custom [devicetree bindings][bindings]
 - Out-of-tree [drivers][drivers]
 - Example CI configuration (using Github Actions)
 - Custom [west extension][west_ext]
-
-This repository is versioned together with the [Zephyr main tree][zephyr]. This
-means that every time that Zephyr is tagged, this repository is tagged as well
-with the same version number, and the [manifest](west.yml) entry for `zephyr`
-will point to the corresponding Zephyr tag. For example, `example-application`
-v2.6.0 will point to Zephyr v2.6.0. Note that the `main` branch will always
-point to the development branch of Zephyr, also `main`.
 
 [app_dev]: https://docs.zephyrproject.org/latest/develop/application/index.html
 [workspace_app]: https://docs.zephyrproject.org/latest/develop/application/index.html#zephyr-workspace-app
@@ -34,19 +27,15 @@ point to the development branch of Zephyr, also `main`.
 Before getting started, make sure you have a proper Zephyr development
 environment. You can follow the official
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
-
+After this, you should have a Python virtual env with west tools and the Zephyr SDK installed.
 ### Initialization
 
-The first step is to initialize the workspace folder (``my-workspace``) where
-the ``example-application`` and all Zephyr modules will be cloned. You can do
-that by running:
+Clone this repository.
 
 ```shell
-# initialize my-workspace for the example-application (main branch)
-west init -m https://github.com/zephyrproject-rtos/example-application --mr main my-workspace
 # update Zephyr modules
-cd my-workspace
 west update
+west zephyr-export
 ```
 
 ### Build & Run
@@ -54,7 +43,8 @@ west update
 The application can be built by running:
 
 ```shell
-west build -b $BOARD app
+cd app
+west build -b $BOARD
 ```
 
 where `$BOARD` is the target board. The `custom_plank` board found in this
@@ -64,7 +54,7 @@ appropriate overlay is provided (see `app/boards`).
 A sample debug configuration is also provided. You can apply it by running:
 
 ```shell
-west build -b $BOARD app -- -DOVERLAY_CONFIG=debug.conf
+west build -b $BOARD -- -DOVERLAY_CONFIG=debug.conf
 ```
 
 Note that you may also use it together with `rtt.conf` if using Segger RTT. Once
