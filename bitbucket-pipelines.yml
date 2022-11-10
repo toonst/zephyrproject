@@ -1,0 +1,32 @@
+# This pipeline uses the Zephyr Docker image defined here:
+# https://github.com/zephyrproject-rtos/docker-image
+# It contains all tooling and SDK to build Zephyr based applications
+image: zephyrprojectrtos/zephyr-build:latest
+
+pipelines:
+  default:
+    - step:
+        name: 'Lint'
+        runs-on:
+          - 'self.hosted'
+        script:
+          - echo "Your linting goes here..."
+    - step:
+        name: 'Build'
+        runs-on:
+          - 'self.hosted'
+        script:
+          - echo "Starting build"
+          - unset ZEPHYR_BASE
+          - cd app
+          - west update
+          - west zephyr-export
+          - west build
+        artifacts:
+          - app/build/**
+    - step:
+        name: 'Test'
+        runs-on:
+          - 'self.hosted'
+        script:
+          - echo "Your test goes here..."
