@@ -1,0 +1,6 @@
+[manifest]
+path = manifest_dir
+
+[zephyr]
+base = zephyr
+
