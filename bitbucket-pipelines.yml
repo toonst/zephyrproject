@@ -18,6 +18,8 @@ pipelines:
         script:
           - echo "Starting build"
           - unset ZEPHYR_BASE
+          - pwd
+          - git config --global --add safe.directory $(pwd)/zephyr
           - cd app
           - west update
           - west zephyr-export
