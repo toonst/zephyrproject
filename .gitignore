@@ -11,5 +11,6 @@ zephyr/*
 
 # build
 /build*
+app/build/*
 
 __pycache__/
