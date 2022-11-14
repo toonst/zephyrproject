@@ -18,12 +18,13 @@ pipelines:
         script:
           - echo "Starting build"
           - unset ZEPHYR_BASE
-          - pwd
           - git config --global --add safe.directory $(pwd)/zephyr
           - cd app
           - west update
           - west zephyr-export
-          - west build
+            # change this board to yours or add board definition
+            # to CMakeLists.txt file in app directory
+          - west build -b nucleo_f302r8
         artifacts:
           - app/build/**
     - step:
