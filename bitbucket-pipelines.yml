@@ -15,6 +15,8 @@ pipelines:
         name: 'Build'
         runs-on:
           - 'self.hosted'
+        caches:
+          - zephyr
         script:
           - echo "Starting build"
           - unset ZEPHYR_BASE
@@ -27,9 +29,16 @@ pipelines:
           - west build -b nucleo_f302r8
         artifacts:
           - app/build/**
+          - zephyr/**
     - step:
         name: 'Test'
         runs-on:
           - 'self.hosted'
         script:
           - echo "Your test goes here..."
+          - unset ZEPHYR_BASE
+          - git config --global --add safe.directory $(pwd)/zephyr
+          - ./zephyr/scripts/twister --platform native_posix_64 -o test-reports -T zephyr/tests/kernel/device
+definitions:
+  caches:
+    zephyr: zephyr
