@@ -56,9 +56,7 @@ A sample debug configuration is also provided. You can apply it by running:
 ```shell
 west build -b $BOARD -- -DOVERLAY_CONFIG=debug.conf
 ```
-
-Note that you may also use it together with `rtt.conf` if using Segger RTT. Once
-you have built the application you can flash it by running:
+Once you have built the application you can flash it by running:
 
 ```shell
 west flash
