@@ -5,6 +5,14 @@
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.13.1)
+
+# Re-direct the directory where the 'boards' directory is found from
+# $ZEPHYR_BASE to the root of this repo
+set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
+
+# Set myboard as default board to compile for
+set(BOARD myboard)
+
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project(app LANGUAGES C VERSION 1.0.0)
