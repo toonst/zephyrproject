@@ -24,8 +24,8 @@ pipelines:
           - cd app
           - west update
           - west zephyr-export
-            # change this board to yours or add board definition
-            # to CMakeLists.txt file in app directory
+            # change this board to yours or set BOARD
+            # in CMakeLists.txt file in app directory
           - west build -b nucleo_f302r8
         artifacts:
           - app/build/**
