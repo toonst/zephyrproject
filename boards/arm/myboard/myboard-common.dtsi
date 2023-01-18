@@ -6,7 +6,6 @@
 
 #include <st/u5/stm32u585Xi.dtsi>
 #include <st/u5/stm32u585aiixq-pinctrl.dtsi>
-#include "arduino_r3_connector.dtsi"
 
 / {
 	leds {
