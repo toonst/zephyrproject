@@ -10,7 +10,7 @@ applications. Some of the features demonstrated in this example are:
 - [Custom boards][board_porting]
 - Custom [devicetree bindings][bindings]
 - Out-of-tree [drivers][drivers]
-- Example CI configuration (using Github Actions)
+- Example CI configuration (using Github Actions and bitbucket pipeline)
 - Custom [west extension][west_ext]
 
 [app_dev]: https://docs.zephyrproject.org/latest/develop/application/index.html
@@ -47,7 +47,7 @@ cd app
 west build -b $BOARD
 ```
 
-where `$BOARD` is the target board. The `custom_plank` board found in this
+where `$BOARD` is the target board. The `myboard` board found in this
 repository can be used. Note that Zephyr sample boards may be used if an
 appropriate overlay is provided (see `app/boards`).
 
