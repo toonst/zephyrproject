@@ -17,14 +17,27 @@ jobs:
         run: |
           west update
           pip3 install -r ../zephyr/scripts/requirements-base.txt
+          west spdx --init -d build
 
       - name: Build firmware
         working-directory: app
         run: |
           west build -b myboard
 
+      - name: Build SBOM
+        working-directory: app
+        run: |
+          west spdx -d build
+
       - name: Archive firmware
         uses: actions/upload-artifact@v2
         with:
           name: firmware
           path: app/build/zephyr/zephyr.*
+
+      - name: Archive SBOM
+        uses: actions/upload-artifact@v2
+        with:
+          name: sbom
+          path: app/build/spdx/build.spdx
+
