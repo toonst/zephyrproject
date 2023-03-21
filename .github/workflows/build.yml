@@ -10,7 +10,7 @@ jobs:
       CMAKE_PREFIX_PATH: /opt/toolchains
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Initialize
         working-directory: app
@@ -30,13 +30,13 @@ jobs:
           west spdx -d build
 
       - name: Archive firmware
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: firmware
           path: app/build/zephyr/zephyr.*
 
       - name: Archive SBOM
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: sbom
           path: app/build/spdx/build.spdx
