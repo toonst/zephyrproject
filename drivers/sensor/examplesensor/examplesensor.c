@@ -4,6 +4,7 @@
  */
 
 #define DT_DRV_COMPAT zephyr_examplesensor
+#error  "Compiling sensor driver"
 
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
