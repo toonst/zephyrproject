@@ -22,12 +22,44 @@ applications. Some of the features demonstrated in this example are:
 [zephyr]: https://github.com/zephyrproject-rtos/zephyr
 [west_ext]: https://docs.zephyrproject.org/latest/develop/west/extensions.html
 
+We try to structure the code and build the app in a way that stays as
+close as possible to the way upstream Zephyr is structured & built. This
+has the following advantages:
+
+- easier maintenance of the project
+- we can benefit from changes made in the upstream project
+- Zephyr documentation can be used to setup the development environment,
+  where the setup differs from upstream we document it
+- we can make use of the abstraction of the west meta tool, simplifying
+  build while at the same time not hiding what is happening from the
+  developer
 ## Getting Started
 
-Before getting started, make sure you have a proper Zephyr development
-environment. You can follow the official
+### Install development environment
+
+Make sure you have a proper Zephyr development environment. You can follow the official
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
-After this, you should have a Python virtual env with west tools and the Zephyr SDK installed.
+
+1. Install dependencies
+2. Install west within virtual environment
+3. Get Zephyr (west update)
+4. Install requirements within virtual environment
+5. Install Zephyr SDK containing toolchain
+
+> **_NOTE:_**  The **west init** step specified in the zephyr documentation should be skipped,
+               the workspace is already initialzed when doing a git clone of this repository
+
+### Python virtual environment
+
+After following the getting started guide, you should have a **Python virtual env** with west tools
+and the Zephyr SDK installed. The Python virtual environment makes sure there is no issues with
+dependencies, and should be activated from the root of the repo each time before a build with
+the following command:
+
+```
+source .venv/bin/activate
+```
+
 ### Initialization
 
 Clone this repository.
@@ -38,26 +70,20 @@ west update
 west zephyr-export
 ```
 
-### Build & Run
+### Build
 
 The application can be built by running:
 
 ```shell
-cd app
-west build -b $BOARD
+cd Application
+west build -b myboard
 ```
 
-where `$BOARD` is the target board. The `myboard` board found in this
-repository can be used. Note that Zephyr sample boards may be used if an
-appropriate overlay is provided (see `app/boards`).
+### Flash
 
-A sample debug configuration is also provided. You can apply it by running:
-
-```shell
-west build -b $BOARD -- -DOVERLAY_CONFIG=debug.conf
-```
 Once you have built the application you can flash it by running:
 
 ```shell
 west flash
 ```
+
