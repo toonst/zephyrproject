@@ -4,3 +4,6 @@ path = manifest_dir
 [zephyr]
 base = zephyr
 
+[build]
+board_warn = false
+
