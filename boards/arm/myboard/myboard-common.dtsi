@@ -229,3 +229,7 @@ zephyr_udc0: &usbotg_fs {
 &iwdg {
 	status = "okay";
 };
+
+&exti {
+    #address-cells = <0>;
+};
