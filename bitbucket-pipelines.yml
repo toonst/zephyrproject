@@ -7,14 +7,14 @@ pipelines:
   default:
     - step:
         name: 'Lint'
-        runs-on:
-          - 'self.hosted'
+        #runs-on:
+        #  - 'self.hosted'
         script:
           - echo "Your linting goes here..."
     - step:
         name: 'Build'
-        runs-on:
-          - 'self.hosted'
+        #runs-on:
+        #  - 'self.hosted'
         caches:
           - zephyr
         script:
@@ -32,8 +32,8 @@ pipelines:
           - zephyr/**
     - step:
         name: 'Test'
-        runs-on:
-          - 'self.hosted'
+        #runs-on:
+        #  - 'self.hosted'
         script:
           - echo "Your test goes here..."
           - unset ZEPHYR_BASE
