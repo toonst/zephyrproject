@@ -1,5 +1,5 @@
 [manifest]
-path = manifest_dir
+path = manifest
 
 [zephyr]
 base = zephyr

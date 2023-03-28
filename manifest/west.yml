@@ -25,5 +25,5 @@ manifest:
       revision: 0.34.0
       path: modules/lib/memfault-firmware-sdk
   self:
-    path: manifest_dir
+    path: manifest
     west-commands: scripts/west-commands.yml
