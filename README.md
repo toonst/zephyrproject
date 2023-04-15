@@ -75,7 +75,7 @@ west zephyr-export
 The application can be built by running:
 
 ```shell
-cd Application
+cd app
 west build -b myboard
 ```
 

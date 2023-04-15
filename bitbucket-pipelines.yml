@@ -24,9 +24,7 @@ pipelines:
           - cd app
           - west update
           - west zephyr-export
-            # change this board to yours or set BOARD
-            # in CMakeLists.txt file in app directory
-          - west build -b nucleo_f302r8
+          - west build
         artifacts:
           - app/build/**
           - zephyr/**
@@ -35,7 +33,7 @@ pipelines:
         #runs-on:
         #  - 'self.hosted'
         script:
-          - echo "Your test goes here..."
+          - echo "Starting tests"
           - unset ZEPHYR_BASE
           - git config --global --add safe.directory $(pwd)/zephyr
           - ./zephyr/scripts/twister --platform native_posix_64 -o test-reports -T zephyr/tests/kernel/device
