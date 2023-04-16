@@ -22,7 +22,7 @@ manifest:
           - mbedtls
     - name: memfault-firmware-sdk
       remote: memfault
-      revision: 0.42.1
+      revision: master
       path: modules/lib/memfault-firmware-sdk
   self:
     path: manifest
