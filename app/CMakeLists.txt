@@ -19,8 +19,7 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 # Get the latest git tag without 'v' prefix
 execute_process(
-    COMMAND bash -c "git describe --abbrev=0 --tags 2>/dev/null \
-                     | sed 's/^v//'"
+  COMMAND bash -c "../tools/get_latest_version.sh | sed 's/^v//'"
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   OUTPUT_VARIABLE APP_VERSION
   OUTPUT_STRIP_TRAILING_WHITESPACE
