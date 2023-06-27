@@ -39,7 +39,11 @@ echo "Last version: $last_version"
 
 if [[ -z "$new_version" ]]; then
   # Increment the patch version by 1 if new_version is not provided
-  new_version=$(echo $last_version | awk -F. '{$NF++; print}' OFS=.)
+  if [[ "$last_version" == "v0.0.0" ]]; then
+    new_version="v0.0.1"
+  else
+    new_version=$(echo $last_version | awk -F. '{$NF++; print}' OFS=.)
+  fi
 fi
 
 echo "Generating CHANGELOG.md using commit history from $last_version till $new_version"
