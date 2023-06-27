@@ -28,6 +28,12 @@ while (( "$#" )); do
   esac
 done
 
+cleanup() {
+  rm -f CHANGELOG.md.part1 CHANGELOG.md.part2
+}
+
+trap cleanup EXIT
+
 last_version=$(bash "$(dirname "$0")/get_latest_version.sh")
 echo "Last version: $last_version"
 
@@ -58,5 +64,3 @@ if $create_tag; then
 else
   echo "Use 'git diff CHANGELOG.md' to display"
 fi
-
-rm CHANGELOG.md.part1 CHANGELOG.md.part2
