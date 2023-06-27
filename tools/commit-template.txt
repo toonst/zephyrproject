@@ -1,0 +1,17 @@
+
+# Format of the commit message
+#
+# <type>: <subject>
+#
+# <optional body>
+
+# Suggested <type> values:
+#   * feat (new feature for the user, not a new feature for eg. build scripts)
+#   * fix (bug fix for the user, not a fix to a build script)
+#   * docs (changes to the documentation)
+#   * style (formatting, missing semi colons, etc; no production code change)
+#   * refactor (refactoring production code, eg. renaming a variable)
+#   * test (adding missing tests, refactoring tests; no production code change)
+#   * ci (continuous integration pipeline changes)
+#   * build (build system and scripts changes)
+#   * other (updating tooling etc; no production code change)
