@@ -21,12 +21,11 @@ pipelines:
           - echo "Starting build"
           - unset ZEPHYR_BASE
           - git config --global --add safe.directory $(pwd)/zephyr
-          - cd app
           - west update
           - west zephyr-export
-          - west build
+          - west build app
         artifacts:
-          - app/build/**
+          - build/**
           - zephyr/**
     - step:
         name: 'Test'
