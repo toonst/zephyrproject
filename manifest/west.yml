@@ -18,6 +18,7 @@ manifest:
           # fixed version, they can be added to the list of projects
           # defined above
           - hal_stm32
+          - hal_st
           - cmsis
           - mbedtls
     - name: memfault-firmware-sdk
