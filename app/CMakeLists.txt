@@ -15,6 +15,9 @@ set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 # Set myboard as default board to compile for
 set(BOARD myboard)
 
+# Suppress SPI DTC warnings
+list(APPEND EXTRA_DTC_FLAGS "-Wno-spi_bus_bridge")
+
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 # Get the latest git tag without 'v' prefix
