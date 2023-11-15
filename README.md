@@ -7,7 +7,6 @@ applications. Some of the features demonstrated in this example are:
 - Basic [Zephyr application][app_dev] skeleton
 - [Zephyr workspace applications][workspace_app]
 - Loosely based on [West T2 topology][west_t2]
-- [Custom boards][board_porting]
 - Custom [devicetree bindings][bindings]
 - Out-of-tree [drivers][drivers]
 - Example CI configuration (using Github Actions and bitbucket pipeline)

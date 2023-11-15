@@ -10,7 +10,8 @@ cmake_minimum_required(VERSION 3.13.1)
 
 # Re-direct the directory where the 'boards' directory is found from
 # $ZEPHYR_BASE to the root of this repo
-set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
+# uncomment this to have custom boards inside this repository
+#set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 
 # Set b_u585i_iot02a as default board to compile for
 set(BOARD b_u585i_iot02a)
