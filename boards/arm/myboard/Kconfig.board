@@ -1,6 +1,0 @@
-# Copyright (c) 2022 Toost Solutions
-# SPDX-License-Identifier: Apache-2.0
-
-config BOARD_MYBOARD
-	bool "myboard Board"
-	depends on SOC_STM32U585XX
