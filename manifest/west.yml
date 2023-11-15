@@ -4,8 +4,6 @@ manifest:
   remotes:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
-    - name: memfault
-      url-base: https://github.com/memfault
   projects:
     - name: zephyr
       remote: upstream
@@ -20,11 +18,6 @@ manifest:
           - hal_stm32
           - hal_st
           - cmsis
-          - mbedtls
-    - name: memfault-firmware-sdk
-      remote: memfault
-      revision: master
-      path: modules/lib/memfault-firmware-sdk
   self:
     path: manifest
     west-commands: scripts/west-commands.yml
