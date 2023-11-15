@@ -9,7 +9,7 @@ manifest:
   projects:
     - name: zephyr
       remote: upstream
-      revision: v3.4-branch
+      revision: v3.5-branch
       west-commands: scripts/west-commands.yml
       import:
         name-allowlist:
