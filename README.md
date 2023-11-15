@@ -76,7 +76,7 @@ The application can be built by running:
 
 ```shell
 cd app
-west build -b myboard
+west build -b your_board
 ```
 
 ### Flash

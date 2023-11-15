@@ -22,7 +22,7 @@ jobs:
       - name: Build firmware
         working-directory: app
         run: |
-          west build -b myboard
+          west build -b b_u585i_iot02a
 
       - name: Build SBOM
         working-directory: app

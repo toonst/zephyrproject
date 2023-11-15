@@ -12,8 +12,8 @@ cmake_minimum_required(VERSION 3.13.1)
 # $ZEPHYR_BASE to the root of this repo
 set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 
-# Set myboard as default board to compile for
-set(BOARD myboard)
+# Set b_u585i_iot02a as default board to compile for
+set(BOARD b_u585i_iot02a)
 
 # Suppress SPI DTC warnings
 list(APPEND EXTRA_DTC_FLAGS "-Wno-spi_bus_bridge")
